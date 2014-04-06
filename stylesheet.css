@@ -41,7 +41,8 @@ h3.anchor {
 
 .col-center {
     position: relative;
-    left: 335px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 20px;
 }
 
