@@ -35,13 +35,13 @@ h3.anchor {
 .class-well {
     background-color: #eeeeee;
     width: 600px;
+    margin: auto;
     padding: 8px;
     border-radius: 15px;
 }
 
 .col-center {
     position: relative;
-    margin: auto;
     margin-top: 20px;
 }
 
