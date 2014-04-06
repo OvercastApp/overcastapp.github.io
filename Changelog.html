@@ -18,6 +18,16 @@
          $("[rel=tooltip]").tooltip();
          }
         });
+
+        $('#tabIOS a').click(function (e) {
+          e.preventDefault()
+          $(this).tab('show')
+        })
+
+        $('#tabAndroid a').click(function (e) {
+          e.preventDefault()
+          $(this).tab('show')
+        })
     </script>
   </head>
 
@@ -46,13 +56,7 @@
                   <li><a href="https://github.com/OvercastApp/Android/issues/new"><i class="fa fa-android"></i> Android</a></li>
                 </ul>
             </li>
-            <li class="dropdown active">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i> Changelog <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="Changelog.html#IOS"><i class="fa fa-apple"></i> IOS</a></li>
-                  <li><a href="Changelog.html#Android"><i class="fa fa-android"></i> Android</a></li>
-                </ul>
-            </li>
+            <li class="active"><a href="changelog.html"><i class="fa fa-book"></i> Changelog</a></li>
             <li><a href="https://github.com/OvercastApp"><i class="fa fa-code"></i> Code</a></li>
             </ul>
             <p class="navbar-text navbar-right"><a href="https://github.com" class="navbar-link"><i class="fa fa-github"></i> Github</a></p>
@@ -60,16 +64,77 @@
         </div>
       </div>
     </div>
-
     <!--Navbar End / Start of the content-->
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h1 class="panel-title"></h1>
-            </div>
-            <div class="panel-body">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tabIOS" data-toggle="tab"><i class="fa fa-apple"></i> IOS</a></li>
+          <li><a href="#tabAndroid" data-toggle="tab"><i class="fa fa-android"></i> Android</a></li>
+          <li><a href="#tabWeb" data-toggle="tab"><i class="fa fa-hdd-o"></i> Web</a></li>
+        </ul>
 
-            </div>
-        </div>
+<!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="tabIOS">
+      <h2>Changelog IOS Version</h2>
+      <table id="IOS" class="table table-bordered table-hover">
+        <tr><td><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i></p></td></tr>
+      </table>
+    </div>
+
+    <div class="tab-pane" id="tabAndroid">
+      <h2>Changelog Android Version</h2>
+      <table id="Android" class="table table-bordered table-hover">
+        <tr><td><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i></p></td></tr>
+      </table>
+    </div>
+
+    <div class="tab-pane" id="tabWeb">
+      <h2>Changelog Web</h2>
+      <table id="Web" class="table table-bordered table-hover">
+        <tr><td><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i></p></td></tr>
+      </table>
+    </div>
+  </div>
     </div><!-- /Main container -->
+
+    <!--Commit loader-->
+    <script type="text/javascript">
+              function loadData(owner,repo,id) {
+                  jQuery.extend({
+                      getValues: function(url) {
+                          $.ajax({
+                              url: url,
+                              type: 'get',
+                              dataType: 'JSON',
+                              async: false,
+                              success: function(data) {
+                                  result = data;
+                              }
+                          });
+                          return result;
+                      }
+                  });
+                  $.getValues("https://api.github.com/repos/"+owner+"/"+repo+"/commits");
+                  if (result == null) {
+                      table = '<div class="alert alert-danger"><p><strong><i class="fa fa-exclamation-sign"></i> Error</strong> Could not load Commits from Github, maybe Github is down, try again later.</p></div>';
+                  }
+                  else {
+                      var index;
+                      table = '';
+                      for (index = 0; index < result.length; ++index) {
+                          var number = index + 1;
+                          table += '<tr>';
+                          table += '<td>'+number+'</td>';
+                          table += '<td><a href="'+result[index].html_url+'" title="'+result[index].sha+'" target="blank">'+result[index].sha.substring(0,9)+'</a></td>';
+                          table += '<td><img src="'+result[index].author.avatar_url+'" class="img-rounded" size="16" style="width: 16px; height: 16px;" alt="'+result[index].commit.author.name+'"> <a href="'+result[index].author.html_url+'">'+result[index].commit.author.name+'</a></td>';
+                          table += '<td>'+result[index].commit.message+'</td>';
+                          table += '<td>'+result[index].commit.author.date+'</td>';
+                          table += '<tr>';
+                      }
+                  }
+                  window.document.getElementById(id).innerHTML='<thead><tr><th>#</th><th>Revision</th><th class="col-md-2">Author</th><th class="col-md-4">Description</th><th class="col-md-3">Date</th></tr></thead><tbody>'+table+'</tbody></table>';
+              }
+
+              window.onload=function(){loadData("OverCastApp","IOS","IOS"),loadData("OverCastApp","Android","Android"),loadData("OverCastApp","OvercastApp.github.io","Web")};
+          </script>
   </body>
 </html>
