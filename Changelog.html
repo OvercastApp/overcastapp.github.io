@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="https://avatars2.githubusercontent.com/u/6866854?s=35">
-    <title>OverCastApp | TEMPLATE</title>
+    <link rel="shortcut icon" href="https://avatars2.githubusercontent.com/u/7188639?s=35">
+    <title>OverCastApp | Changelog</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.js"></script>
@@ -74,23 +74,32 @@
 <!-- Tab panes -->
   <div class="tab-content">
     <div class="tab-pane active" id="tabIOS">
-      <h2>Changelog IOS Version</h2>
+      <br/>
+      <div class="alert alert-info">
+        <strong><i class="fa fa-info-circle"></i> This project is open source</strong> You can fork the repository at <a href="https://github.com/OverCastApp/IOS" target="blank">GitHub</a>.
+      </div>
       <table id="IOS" class="table table-bordered table-hover">
-        <tr><td><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i></p></td></tr>
+        <tr><td><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i> Loading</p></td></tr>
       </table>
     </div>
 
     <div class="tab-pane" id="tabAndroid">
-      <h2>Changelog Android Version</h2>
+      <br/>
+      <div class="alert alert-info">
+        <strong><i class="fa fa-info-circle"></i> This project is open source</strong> You can fork the repository at <a href="https://github.com/OverCastApp/Android" target="blank">GitHub</a>.
+      </div>
       <table id="Android" class="table table-bordered table-hover">
-        <tr><td><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i></p></td></tr>
+        <tr><td><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i> Loading</p></td></tr>
       </table>
     </div>
 
     <div class="tab-pane" id="tabWeb">
-      <h2>Changelog Web</h2>
+      <br/>
+      <div class="alert alert-info">
+        <strong><i class="fa fa-info-circle"></i> This project is open source</strong> You can fork the repository at <a href="https://github.com/OverCastApp/OverCastApp.github.io" target="blank">GitHub</a>.
+      </div>
       <table id="Web" class="table table-bordered table-hover">
-        <tr><td><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i></p></td></tr>
+        <tr><td><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i> Loading</p></td></tr>
       </table>
     </div>
   </div>
@@ -127,11 +136,12 @@
                           table += '<td><a href="'+result[index].html_url+'" title="'+result[index].sha+'" target="blank">'+result[index].sha.substring(0,9)+'</a></td>';
                           table += '<td><img src="'+result[index].author.avatar_url+'" class="img-rounded" size="16" style="width: 16px; height: 16px;" alt="'+result[index].commit.author.name+'"> <a href="'+result[index].author.html_url+'">'+result[index].commit.author.name+'</a></td>';
                           table += '<td>'+result[index].commit.message+'</td>';
-                          table += '<td>'+result[index].commit.author.date+'</td>';
+                          //table += '<td>'+result[index].commit.author.date+'</td>';
                           table += '<tr>';
                       }
                   }
-                  window.document.getElementById(id).innerHTML='<thead><tr><th>#</th><th>Revision</th><th class="col-md-2">Author</th><th class="col-md-4">Description</th><th class="col-md-3">Date</th></tr></thead><tbody>'+table+'</tbody></table>';
+                  //window.document.getElementById(id).innerHTML='<thead><tr><th>#</th><th>Revision</th><th class="col-md-2">Author</th><th class="col-md-4">Description</th><th class="col-md-3">Date</th></tr></thead><tbody>'+table+'</tbody></table>';
+                  window.document.getElementById(id).innerHTML='<thead><tr><th>#</th><th>Revision</th><th class="col-md-2">Author</th><th class="col-md-6">Description</th></tr></thead><tbody>'+table+'</tbody></table>';
               }
 
               window.onload=function(){loadData("OverCastApp","IOS","IOS"),loadData("OverCastApp","Android","Android"),loadData("OverCastApp","OvercastApp.github.io","Web")};
