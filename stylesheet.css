@@ -1,0 +1,139 @@
+html * {
+    width: 600px;
+    font-family: "Lato" !important;
+    margin: 0;
+}
+
+body {
+    padding-top: 60px;
+}
+
+h1 {
+    line-height: 50px;
+    padding-bottom: 10px;
+}
+
+footer {
+    padding-left: 8px;
+    text-align: left;
+}
+
+.anchor {
+    padding-top: 65px;
+    margin-top: -65px;
+}
+
+h3.anchor {
+    padding-top: 65px;
+    margin-top: -55px;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.class-well {
+    background-color: #eeeeee;
+    width: 600px;
+    padding: 8px;
+    border-radius: 15px;
+}
+
+.col-center {
+    position: relative;
+    left: 335px;
+    margin-top: 20px;
+}
+
+.gray {
+    color: #666666
+}
+
+.deco-link {
+    color: #000000;
+    text-decoration: none;
+}
+
+nav {
+    background-color: gray;
+    height: 50px;
+    padding: 2px;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    margin-top: -60px;
+    min-width: 600px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    display: inline;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+ul > li {
+    display: inline;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+}
+
+ul > li > a {
+    width: 33%;
+    height: 25px;
+    padding: 12.5px 0;
+    margin: 0;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s background-color ease;
+    -webkit-transition: 0.3s background-color ease;
+    -moz-transition: 0.3s background-color ease;
+    -o-transition: 0.3s background-color ease;
+}
+
+ul > li > a:hover {
+    background-color: #444;
+}
+
+.dropdown-menu {
+    width: 45px;
+    float: right;
+    margin-right: -40px;
+    visibility: hidden;
+    transition: 0.3s margin-right ease;
+    -webkit-transition: 0.3s margin-right ease;
+    -moz-transition: 0.3s margin-right ease;
+    -o-transition: 0.3s margin-right ease;
+}
+
+.dropdown-menu > li {
+    width: 45px;
+    display: list-item;
+    text-align: center;
+    height: 20px;
+    margin: 0;
+    padding: 2px;
+    background-color: gray;
+    visibility: hidden;
+}
+
+.dropdown-menu > li > a {
+    width: 43px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    visibility: hidden;
+}
+
+.dropdown-toggle:hover .dropdown-menu,
+.dropdown-toggle:hover .dropdown-menu > li,
+.dropdown-toggle:hover .dropdown-menu > li > a {
+    visibility: visible;
+    margin-right: 4px;
+}

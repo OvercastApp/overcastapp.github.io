@@ -1,0 +1,31 @@
+#################
+## Various
+#################
+
+# NetBeans
+/nbproject
+
+# Maven
+/target
+*/target
+/dependency-reduced-pom.xml
+
+# vim
+.*.sw[a-p]
+
+# Various other potential build files
+/build
+/bin
+/dist
+/manifest.mf
+
+/world
+
+# Mac filesystem dust
+.DS_Store
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
