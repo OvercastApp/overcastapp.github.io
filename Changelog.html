@@ -11,6 +11,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/timeago.js"></script>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
     <script type='text/javascript'>
         $(document).ready(function () {
@@ -18,16 +19,7 @@
          $("[rel=tooltip]").tooltip();
          }
         });
-
-        $('#tabIOS a').click(function (e) {
-          e.preventDefault()
-          $(this).tab('show')
-        })
-
-        $('#tabAndroid a').click(function (e) {
-          e.preventDefault()
-          $(this).tab('show')
-        })
+        $('body').timeago();
     </script>
   </head>
 
@@ -136,15 +128,15 @@
                           table += '<td><a href="'+result[index].html_url+'" title="'+result[index].sha+'" target="blank">'+result[index].sha.substring(0,9)+'</a></td>';
                           table += '<td><img src="'+result[index].author.avatar_url+'" class="img-rounded" size="16" style="width: 16px; height: 16px;" alt="'+result[index].commit.author.name+'"> <a href="'+result[index].author.html_url+'">'+result[index].commit.author.name+'</a></td>';
                           table += '<td>'+result[index].commit.message+'</td>';
-                          //table += '<td>'+result[index].commit.author.date+'</td>';
+                          table += '<td><time class="timeago" datetime="'+result[index].commit.author.date+'"></time></td>';
                           table += '<tr>';
                       }
                   }
-                  //window.document.getElementById(id).innerHTML='<thead><tr><th>#</th><th>Revision</th><th class="col-md-2">Author</th><th class="col-md-4">Description</th><th class="col-md-3">Date</th></tr></thead><tbody>'+table+'</tbody></table>';
-                  window.document.getElementById(id).innerHTML='<thead><tr><th>#</th><th>Revision</th><th class="col-md-2">Author</th><th class="col-md-6">Description</th></tr></thead><tbody>'+table+'</tbody></table>';
+                  window.document.getElementById(id).innerHTML='<thead><tr><th>#</th><th>Revision</th><th class="col-md-2">Author</th><th class="col-md-4">Description</th><th class="col-md-3">When</th></tr></thead><tbody>'+table+'</tbody></table>';
+
               }
 
-              window.onload=function(){loadData("OvercastApp","IOS","IOS"),loadData("OvercastApp","Android","Android"),loadData("OvercastApp","OvercastApp.github.io","Web")};
+              window.onload=function(){loadData("OvercastApp","IOS","IOS"),loadData("OvercastApp","Android","Android"),loadData("OvercastApp","OvercastApp.github.io","Web"),$('body').timeago('refresh')};
           </script>
   </body>
 </html>
